@@ -1,0 +1,58 @@
+.container{
+    margin-top: 120px;
+}
+
+tbody th{
+    background-color: #eafaec;
+    vertical-align: middle;
+}
+td{
+    background-color: #eafaec;
+    vertical-align: middle;
+
+    
+}
+td input{
+    background-color: #f1faf2;
+    text-align: center;
+}
+
+
+thead th{
+    background-color: #80ed99;
+}
+/*.btn{
+    background-color: #80ed99;
+}*/
+table {
+    border: 1px solid #38A3A5;
+    
+}
+/*.btn-edit{
+    background-color: #38A3A5;
+}
+.btn-delete{
+    background-color: #ff2222;
+}*/
+.btn-edit:hover{
+    background-color: #68bfc0;
+
+}
+.btn-delete:hover{
+    background-color: #ff4e4e;
+}
+
+.btn-add{
+    border: 1px solid;
+    background-color: #80ed99;
+    font-weight: 500;
+}
+.btn-add:hover{
+    background-color: #62ec82;
+}
+.btn-modal{
+    background-color: #80ed99;
+}
+.btn-modal:hover{
+    background-color: #62ec82;
+}
