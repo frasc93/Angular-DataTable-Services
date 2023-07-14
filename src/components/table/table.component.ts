@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ModalDirective, ModalModule } from 'ngx-bootstrap/modal';
+import {Modal} from "bootstrap";
 
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -25,17 +26,11 @@ export class TableComponent {
     deleteData(personId: number) {
       const index = this.tableData.findIndex(item => item.id === personId)
       if (index !== -1) this.tableData.splice(index, 1);
-      this.isModalVisible = false;
-    
+     
   }
-  openModalDelete(item: any) {
-    this.isModalVisible = true; // mostra la modal
-  }
-
-  // modifica
-  isModalVisible: boolean = false; 
+  // modifica 
   editingItem: any = {}; //oggetto vuoto per memorizzare il dato modificato
-  
+
   //Reactive Form
   editForm!: FormGroup; //creo un oggetto di tipo FormGroup
   constructor(private formBuilder: FormBuilder ) {} //inizializzo il formBuilder
@@ -56,24 +51,23 @@ export class TableComponent {
       firstName: item.firstName,
       lastName: item.lastName
     });
-    this.isModalVisible = true; // mostra la modal
   }
 
   //funzione per salvare al click
-  
+  isFormIncomplete: boolean = false;
+
   saveChanges() {
     if (this.editForm.valid) {
       const editedItem = { ...this.editingItem, ...this.editForm.value }; //crea un nuovo oggetto e aggiorna le proprietà dell'elemento originale con le modifiche del form
       const index = this.tableData.findIndex(item => item.id === editedItem.id); //cerco l'elemento in base all'ID
       
       if (index !== -1) {
-        this.tableData.splice(index, 1, editedItem); //rimuove l'elemento originale e mette quello modificato nella stessa posizione
-        this.isModalVisible = false;
-        console.log("sono qui");
+        this.tableData.splice(index, 1, editedItem); //rimuove l'elemento originale e mette quello modificato nella stessa posizione 
+        this.isFormIncomplete = false; 
       }
-    } else{
-      this.isModalVisible = true;
-
+    } else{     
+      this.isFormIncomplete = true;
+      
     }
   }   
 
