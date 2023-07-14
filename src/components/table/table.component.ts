@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -21,21 +23,22 @@ export class TableComponent {
   
     // eliminare una riga per id 
     deleteData(personId: number) {
-      
-      //uso funzione confirm di javascript per confermare l'eliminazione
-      const confirmed = confirm('Are you sure you want to delete this person?')
-      if (confirmed){
       const index = this.tableData.findIndex(item => item.id === personId)
       if (index !== -1) this.tableData.splice(index, 1);
-    }
+      this.isModalVisible = false;
+    
+  }
+  openModalDelete(item: any) {
+    this.isModalVisible = true; // mostra la modal
   }
 
   // modifica
   isModalVisible: boolean = false; 
   editingItem: any = {}; //oggetto vuoto per memorizzare il dato modificato
   
+  //Reactive Form
   editForm!: FormGroup; //creo un oggetto di tipo FormGroup
-  constructor(private formBuilder: FormBuilder) {} //inizializzo il formBuilder
+  constructor(private formBuilder: FormBuilder ) {} //inizializzo il formBuilder
  
   //metodo group del formBuilder che accetta un oggetto che definisce i controlli del form e i validators
   ngOnInit() {
@@ -48,7 +51,7 @@ export class TableComponent {
   // metodo per aprire la modal al click 
   openModal(item: any) {
     this.editingItem = { ...item };
-    //il metodo patchValue ccetta un oggetto e consente di assegnare i valori dell'elemento selezionato nel formGroup
+    //il metodo patchValue accetta un oggetto e consente di assegnare i valori dell'elemento selezionato nel formGroup
     this.editForm.patchValue({
       firstName: item.firstName,
       lastName: item.lastName
@@ -57,14 +60,20 @@ export class TableComponent {
   }
 
   //funzione per salvare al click
+  
   saveChanges() {
     if (this.editForm.valid) {
       const editedItem = { ...this.editingItem, ...this.editForm.value }; //crea un nuovo oggetto e aggiorna le proprietà dell'elemento originale con le modifiche del form
       const index = this.tableData.findIndex(item => item.id === editedItem.id); //cerco l'elemento in base all'ID
+      
       if (index !== -1) {
         this.tableData.splice(index, 1, editedItem); //rimuove l'elemento originale e mette quello modificato nella stessa posizione
         this.isModalVisible = false;
+        console.log("sono qui");
       }
+    } else{
+      this.isModalVisible = true;
+
     }
   }   
 
