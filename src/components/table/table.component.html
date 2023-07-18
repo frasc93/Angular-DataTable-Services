@@ -30,6 +30,9 @@
                 </div>
               </div>
             </div>
+
+           
+
           </th>
           <td>{{ item.firstName }}</td>
           <td>{{ item.lastName }}</td>
@@ -45,12 +48,13 @@
           <td></td>
                  
           <td>
-            <button class="btn btn-add" (click)="addRow()">Add New Person</button>
+            <button class="btn btn-add mr-5" (click)="addRow()"  data-bs-target="#staticBackdrop3">Add New Person</button>
           </td>
         </tr> 
     
       </tbody>            
     </table>
+
            
 
 <!-- Modal della modifica -->

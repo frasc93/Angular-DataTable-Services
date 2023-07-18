@@ -81,7 +81,7 @@ export class TableComponent {
       this.newRow = {}; //resetta i campi di input
 
     } else {
-      confirm("Please, fill out all the fields")
+      confirm("Please, fill out the fields")
     }
   }
   

@@ -1,41 +1,50 @@
 .container{
     margin-top: 120px;
+    
 }
 
+
 tbody th{
-    background-color: #eafaec;
+    
     vertical-align: middle;
+    color: #2b3a4d;
+    background-color: #f0a93e;
+   
 }
 td{
-    background-color: #eafaec;
+    
     vertical-align: middle;
+    font-weight: 500;
+    color: #2b3a4d;
+    
+    
 
     
 }
 td input{
-    background-color: #f1faf2;
+    border: 2px solid #2b3a4d;
+    border-radius: 10px;
     text-align: center;
+    color: #2b3a4d;
+    font-weight: 500;
 }
 
 
 thead th{
-    background-color: #80ed99;
+    background-color: #2b3a4d;
+    color: #f0a93e;
 }
 /*.btn{
     background-color: #80ed99;
 }*/
 table {
-    border: 1px solid #38A3A5;
+    border: 1px solid #2b3a4d;
     
 }
-/*.btn-edit{
-    background-color: #38A3A5;
-}
-.btn-delete{
-    background-color: #ff2222;
-}*/
+
 .btn-edit:hover{
-    background-color: #68bfc0;
+    background-color: #54c5da
+
 
 }
 .btn-delete:hover{
@@ -43,18 +52,23 @@ table {
 }
 
 .btn-add{
-    border: 1px solid;
-    background-color: #80ed99;
+
+    background-color: #2b3a4d;
     font-weight: 500;
+    color: #f0a93e;
 }
 .btn-add:hover{
-    background-color: #62ec82;
+    background-color: #f0a93e;
+    color: #2b3a4d;
 }
 .btn-modal{
-    background-color: #80ed99;
+    background-color: #2b3a4d;
+    color: #f0a93e;
+    font-weight: 500;
 }
 .btn-modal:hover{
-    background-color: #62ec82;
+    background-color: #f0a93e;
+    color: #2b3a4d;
 }
 
 
