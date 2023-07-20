@@ -1,61 +1,49 @@
 
-<div class="container ">
+<div class="container mt-5 ">
       <table class="table text-center ">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
+          <th scope="col">Title</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Price</th>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
         <!--ciclo i dati del tableData-->
-        <tr *ngFor="let item of tableData, let i = index">
+      <tr *ngFor="let item of tableProducts, let i = index">
           <th scope="row">{{ i + 1 }}     
             <!-- Modal dell'eliminazione -->
             <div class="modal fade" [id]="'staticBackdrop2'+ i" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
               <div class="modal-dialog modal-dialog-centered ">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Are you sure you want to delete this person?</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Are you sure you want to delete this product?</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
             
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                    <button (click)="deleteData(item.id)" type="button" class="btn btn-modal" data-bs-dismiss="modal" >Yes</button>
+                    <button (click)="deleteItem(item)" type="button" class="btn btn-modal" data-bs-dismiss="modal" >Yes</button>
                   </div>
                 </div>
               </div>
-            </div>
-
-           
-
+            </div>       
           </th>
-          <td>{{ item.firstName }}</td>
-          <td>{{ item.lastName }}</td>
-          <td><button (click)="openModal(item)"  type="button" class="btn btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M17.263 2.177a1.75 1.75 0 0 1 2.474 0l2.586 2.586a1.75 1.75 0 0 1 0 2.474L19.53 10.03l-.012.013L8.69 20.378a1.753 1.753 0 0 1-.699.409l-5.523 1.68a.748.748 0 0 1-.747-.188.748.748 0 0 1-.188-.747l1.673-5.5a1.75 1.75 0 0 1 .466-.756L14.476 4.963ZM4.708 16.361a.26.26 0 0 0-.067.108l-1.264 4.154 4.177-1.271a.253.253 0 0 0 .1-.059l10.273-9.806-2.94-2.939-10.279 9.813ZM19 8.44l2.263-2.262a.25.25 0 0 0 0-.354l-2.586-2.586a.25.25 0 0 0-.354 0L16.061 5.5Z"></path></svg></button></td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.brand }}</td>
+          <td>{{ item.price }}</td>
+          <td><button (click)="openModal(item)"  type="button" class="btn btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" ><path d="M17.263 2.177a1.75 1.75 0 0 1 2.474 0l2.586 2.586a1.75 1.75 0 0 1 0 2.474L19.53 10.03l-.012.013L8.69 20.378a1.753 1.753 0 0 1-.699.409l-5.523 1.68a.748.748 0 0 1-.747-.188.748.748 0 0 1-.188-.747l1.673-5.5a1.75 1.75 0 0 1 .466-.756L14.476 4.963ZM4.708 16.361a.26.26 0 0 0-.067.108l-1.264 4.154 4.177-1.271a.253.253 0 0 0 .1-.059l10.273-9.806-2.94-2.939-10.279 9.813ZM19 8.44l2.263-2.262a.25.25 0 0 0 0-.354l-2.586-2.586a.25.25 0 0 0-.354 0L16.061 5.5Z"></path></svg></button></td>
        <td><button class="btn btn-delete" data-bs-toggle="modal" [attr.data-bs-target]="'#staticBackdrop2' + i"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M16 1.75V3h5.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H8V1.75C8 .784 8.784 0 9.75 0h4.5C15.216 0 16 .784 16 1.75Zm-6.5 0V3h5V1.75a.25.25 0 0 0-.25-.25h-4.5a.25.25 0 0 0-.25.25ZM4.997 6.178a.75.75 0 1 0-1.493.144L4.916 20.92a1.75 1.75 0 0 0 1.742 1.58h10.684a1.75 1.75 0 0 0 1.742-1.581l1.413-14.597a.75.75 0 0 0-1.494-.144l-1.412 14.596a.25.25 0 0 1-.249.226H6.658a.25.25 0 0 1-.249-.226L4.997 6.178Z"></path><path d="M9.206 7.501a.75.75 0 0 1 .793.705l.5 8.5A.75.75 0 1 1 9 16.794l-.5-8.5a.75.75 0 0 1 .705-.793Zm6.293.793A.75.75 0 1 0 14 8.206l-.5 8.5a.75.75 0 0 0 1.498.088l.5-8.5Z"></path></svg></button></td>
-
-        </tr>
-         <!--aggiungo da input nuova riga-->
-         <tr>
-          <td></td>
-          <td><input [(ngModel)]="newRow.firstName" type="text" placeholder="First Name"></td>
-          <td><input [(ngModel)]="newRow.lastName" type="text" placeholder="Last Name"></td>
-          <td></td>
-                 
-          <td>
-            <button class="btn btn-add mr-5" (click)="addRow()"  data-bs-target="#staticBackdrop3">Add New Person</button>
-          </td>
-        </tr> 
+      </tr>
     
       </tbody>            
     </table>
-
-           
+     <!--aggiungo nuova riga-->
+    <button class="btn btn-add mr-5"  data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Add New Product</button>
+       
 
 <!-- Modal della modifica -->
 
@@ -72,22 +60,68 @@
              
         <form [formGroup]="editForm">
           <div class="form-group">             
-             
-            <label for="firstName">First Name</label>
-            <input formControlName="firstName" type="text" class="form-control" id="firstName">
-            <p class="text-danger" *ngIf="!editForm.get('firstName')!.valid && editForm.get('firstName')!.touched">Insert a First Name</p>
+            <label for="title">Title</label>
+            <input formControlName="title" type="text" class="form-control" id="title">
+            <p class="text-danger" *ngIf="!editForm.get('title')!.valid && editForm.get('title')!.touched">Insert a Title</p>
           </div>
           <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input formControlName="lastName" type="text" class="form-control" id="lastName">
-            <p class="text-danger" *ngIf="!editForm.get('lastName')!.valid && editForm.get('lastName')!.touched">Insert a Last Name</p>
+            <label for="brand">Brand</label>
+            <input formControlName="brand" type="text" class="form-control" id="brand">
+            <p class="text-danger" *ngIf="!editForm.get('brand')!.valid && editForm.get('brand')!.touched">Insert a Brand</p>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input formControlName="price" type="text" class="form-control" id="price">
+            <p class="text-danger" *ngIf="!editForm.get('price')!.valid && editForm.get('price')!.touched">Insert a Price (number)</p>
           </div>
         </form>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button [disabled] = '!editForm.valid'(click)="saveChanges()" type="button" class="btn btn-modal" data-bs-dismiss="modal">Save Changes</button>
+        <button [disabled] = '!editForm.valid'(click)="updateItem()" type="button" class="btn btn-modal" data-bs-dismiss="modal">Save Changes</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal dell'aggiunta -->
+
+<div class="modal fade " id="staticBackdrop3" data-bs-backdrop="static"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add New Product</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- inserisco form group nel body-->  
+             
+        <form [formGroup]="addForm">
+          <div class="form-group">             
+            <label for="title">Title</label>
+            <input formControlName="title" type="text" class="form-control" id="title">
+            <p class="text-danger" *ngIf="!addForm.get('title')!.valid && addForm.get('title')!.touched">Insert a Title</p>
+          </div>
+          <div class="form-group">
+            <label for="brand">Brand</label>
+            <input formControlName="brand" type="text" class="form-control" id="brand">
+            <p class="text-danger" *ngIf="!addForm.get('brand')!.valid && addForm.get('brand')!.touched">Insert a Brand</p>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input formControlName="price" type="text" class="form-control" id="price">
+            <p class="text-danger" *ngIf="!addForm.get('price')!.valid && addForm.get('price')!.touched">Insert a Price (number)</p>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button [disabled] = '!addForm.valid'(click)="addProduct()" type="button" class="btn btn-modal" data-bs-dismiss="modal">Add Product</button>
 
       </div>
     </div>

@@ -8,7 +8,8 @@ import { TableComponent } from 'src/components/table/table.component';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import {  ModalModule } from 'ngx-bootstrap/modal';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {  ModalModule } from 'ngx-bootstrap/modal';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    ModalModule
+    HttpClientModule
+ 
     
 
   ],

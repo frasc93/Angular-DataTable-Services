@@ -1,5 +1,6 @@
 .container{
-    margin-top: 120px;
+    max-height: 500px; 
+    overflow-y: auto;
     
 }
 
@@ -34,9 +35,9 @@ thead th{
     background-color: #2b3a4d;
     color: #f0a93e;
 }
-/*.btn{
-    background-color: #80ed99;
-}*/
+.btn{
+    fill: #2b3a4d;
+}
 table {
     border: 1px solid #2b3a4d;
     
