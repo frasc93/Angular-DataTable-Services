@@ -28,8 +28,26 @@
   }
   
   .card-text {
-    font-size: 17px;
+    font-size: 16px;
     color: #2b3a4d;
   }
+
+  .btn-back {
+    background-color: #2b3a4d;
+    font-weight: 500;
+    color: #f0a93e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px; /* Imposta la larghezza desiderata del pulsante */
+    margin-left: auto; /* Centra il pulsante rispetto al bordo sinistro */
+    margin-right: auto; /* Centra il pulsante rispetto al bordo destro */
+}
+
+
+.btn-back:hover{
+    background-color: #f0a93e;
+    color: #2b3a4d;
+}
   
   
