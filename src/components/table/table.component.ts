@@ -143,7 +143,7 @@ deleteItem(productId: Info): void {
   
         // resetta il form
         this.addForm.reset();
-        console.log("Added Product:", newProduct)
+        console.log("Added Product:", data)
       },
       error: (err) => {
         console.log(err);

@@ -42,4 +42,8 @@ addData = (product: {}): Observable<Info> => {
   return this.http.post<Info>('https://dummyjson.com/products/add', product)
 }
 
+// get prodotto singolo
+getSingleProduct = (id: number): Observable<Info> => {
+  return this.http.get<Info>(`https://dummyjson.com/products/${id}`)
+}
 }
