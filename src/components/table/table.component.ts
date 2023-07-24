@@ -11,14 +11,6 @@ import { DataService } from 'src/service/data.service';
 })
 export class TableComponent {
 
-  tableData = [
-    { id: 1, firstName: 'Mark', lastName: 'Otto' },
-    { id: 2, firstName: 'Jessica', lastName: 'Thornton' },
-    { id: 3, firstName: 'Larry', lastName: 'Black' },
-    { id: 4, firstName: 'John', lastName: 'Smith' },
-    { id: 5, firstName: 'Mary', lastName: 'White' }
-    
-  ];
 
   tableProducts: Info[] = [] //array vuoto per api
   
