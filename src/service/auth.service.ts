@@ -11,9 +11,15 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+
+  //service per user authentication
   login(login: User): Observable<User> {
 
     return this.http.post<User>(this.loginUrl, login);
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
   }
 
 }

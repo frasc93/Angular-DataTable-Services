@@ -12,7 +12,7 @@ import { AuthService } from 'src/service/auth.service';
 export class LoginComponent {
 
   
-  constructor(private authService: AuthService, private router: ActivatedRoute) {}
+  constructor(private authService: AuthService, private route: ActivatedRoute) {}
   error: boolean; // questo mi serve per l'invalid data nel form del login
 
   public loginForm!: FormGroup;
@@ -25,14 +25,14 @@ export class LoginComponent {
   }
 
   dataLogin() {
+    this.loginForm.markAsPristine(); //metodo che resetta il form dopo un'azione
     // chiamata al servizio di autenticazione
-    this.loginForm.markAsPristine();
     this.authService.login(this.loginForm.value).subscribe({
       next: (res) => {
         this.error= false;
         localStorage.setItem('token', res.token) // salva il token di autenticazione nel localstorage
-        console.log('token', res.token) // stampa il token
-        console.log('login', res) 
+        console.log('User Token:', res.token) // stampa il token
+        console.log('User Logged:', res) 
 
       },
       error: (err) => {
