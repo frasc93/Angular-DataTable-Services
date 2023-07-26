@@ -12,6 +12,8 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { LoginComponent } from 'src/components/login/login.component';
 import { DetailsComponent } from 'src/components/details/details.component';
 import { AuthInterceptor } from 'src/service/auth.interceptor';
+import { CartComponent } from 'src/components/cart/cart.component';
+import { NavbarComponent } from 'src/components/navbar/navbar.component';
 
 
 
@@ -20,7 +22,9 @@ import { AuthInterceptor } from 'src/service/auth.interceptor';
     AppComponent,
     TableComponent,
     DetailsComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { Info } from 'src/modules/DataProducts';
 export class DetailsComponent implements OnInit  {
 
   product: Info | undefined;
+  isAdded: boolean = false;
 
   constructor (public dataService: DataService, private route: ActivatedRoute, private router: Router) {}
 
