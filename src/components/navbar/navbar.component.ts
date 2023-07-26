@@ -10,4 +10,11 @@ export class NavbarComponent {
 
   constructor(public router: Router) { }
 
+  navigateToHomePage() {
+    this.router.navigate(['/']);
+  }
+  navigateToCart() {
+    this.router.navigate(['/cart']);
+  }
+
 }

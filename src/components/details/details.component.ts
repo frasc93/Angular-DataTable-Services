@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/service/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Info } from 'src/modules/DataProducts';
+import { CartService } from 'src/service/cart.service';
 
 @Component({
   selector: 'app-details',
@@ -11,9 +12,10 @@ import { Info } from 'src/modules/DataProducts';
 export class DetailsComponent implements OnInit  {
 
   product: Info | undefined;
+ 
   isAdded: boolean = false;
 
-  constructor (public dataService: DataService, private route: ActivatedRoute, private router: Router) {}
+  constructor (public dataService: DataService, private route: ActivatedRoute, private router: Router, private cartService: CartService) {}
 
   ngOnInit(): void {
       // ottiene l'id del prodotto dalla route
@@ -25,6 +27,14 @@ export class DetailsComponent implements OnInit  {
         this.product = data;
       });
     
+  }
+  toggleAddToCart() {
+    if (this.product) {
+      // Aggiungi il prodotto al carrello utilizzando il cartService
+      this.cartService.addToCart(this.product);
+      this.isAdded = true;
+    }
+
   }
   navigateToHomePage() {
     this.router.navigate(['/']);
