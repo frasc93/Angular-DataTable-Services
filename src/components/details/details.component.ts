@@ -22,19 +22,54 @@ export class DetailsComponent implements OnInit  {
       const productId = this.route.snapshot.params['id'];
 
       if(productId)
-      // recupera i dettagli del prodotto dal servizio
+      // recupera i dettagli del singolo prodotto per id dal service
       this.dataService.getSingleProduct(productId).subscribe((data: Info) => {
         this.product = data;
+        this.product.quantity = 1;  // imposto la quantità iniziale a 1
       });
     
   }
   toggleAddToCart() {
     if (this.product) {
-      // Aggiungi il prodotto al carrello utilizzando il cartService
-      this.cartService.addToCart(this.product);
-      this.isAdded = true;
+      // ottiene l'array dei prodotti nel carrello
+      const cartItems = this.cartService.getCartItems();
+      
+  
+      // verifica se il prodotto è già presente nel carrello
+      const isProductInCart = cartItems.some(item => item.id === this.product?.id);
+  
+      if (!isProductInCart) {
+        this.cartService.addToCart(this.product);
+        this.isAdded = true;
+      } else {
+        this.isAdded = false; // il prodotto è già presente nel carrello, quindi non lo posso riaggiungere
+      }
+    } else {
+      this.isAdded = false;
     }
+  
 
+  }
+
+  //incrementa quantità del prodotto
+  incrementQuantity() {
+    if (this.product) {
+      if (this.product.quantity === undefined) {
+        this.product.quantity = 1;
+      } else {
+        this.product.quantity += 1;
+      }
+    }
+  }
+  //decremento quantità del prodotto
+  decrementQuantity() {
+    if (this.product) {
+      if (this.product.quantity === undefined){
+        this.product.quantity = 1;
+      } else {
+        this.product.quantity -= 1;
+      }
+    }
   }
   navigateToHomePage() {
     this.router.navigate(['/']);

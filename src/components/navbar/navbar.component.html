@@ -1,7 +1,7 @@
 
   <nav class="navbar navbar-expand-lg " style="background-color: #2b3a4d;" *ngIf="!(router.url === '/login')"> <!--condizione per non far vedere la navbar nella pag di login-->
     <div class="container-fluid">
-      <a class="navbar-brand" >Data Table</a>
+      <a class="navbar-brand" (click)="navigateToHomePage()">Data Table</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

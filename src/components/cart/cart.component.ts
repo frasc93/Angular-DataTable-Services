@@ -21,14 +21,31 @@ export class CartComponent {
 
 }
 
+//aggiunge prodotto al carrello
 addToCart(product: Info) {
   this.cartService.addToCart(product);
 }
 
-
+//rimuove prodotto dal carrello
 removeFromCart(product: Info) {
   this.cartService.removeFromCart(product);
   console.log('Product removed from cart', product);
+}
+
+//decremento quantità nel carrello
+decrementQuantity(product: Info) {
+  if (product.quantity && product.quantity > 1) {
+    product.quantity -= 1;
+  }
+}
+
+//incremento quantità nel carrello
+incrementQuantity(product: Info) {
+  if (product.quantity === undefined) {
+    product.quantity = 1;
+  } else {
+    product.quantity += 1;
+  }
 }
 
 }

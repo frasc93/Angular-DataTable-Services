@@ -6,12 +6,14 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+    background-color: #d0f0f7;
     
   }
   
   .card-img-top {
-    width: 300px;
+    width: 400px;
     height: 200px;
+    object-fit: cover;
   }
   
   .card-body {
@@ -19,7 +21,7 @@
   }
   
   .card-title {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     color: #2b3a4d;
     margin-bottom: 20px;
@@ -47,6 +49,25 @@
 .btn-back:hover{
     background-color: #f0a93e;
     color: #2b3a4d;
+}
+.btn-incr{
+  background-color: #2b3a4d;
+  font-weight: 500;
+  color: #f0a93e;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+
+}
+.btn-incr:hover{
+  background-color: #f0a93e;
+  color: #2b3a4d;
 }
   
   

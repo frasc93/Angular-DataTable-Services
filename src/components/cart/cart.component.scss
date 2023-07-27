@@ -6,15 +6,14 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+    background-color: #d0f0f7;
     
   }
   
   .card-img-top {
-    width: 100%;
+    width: 300px;
     height: 230px;
-    
-    
-
+    object-fit: cover;
   }
   
   .card-body {
@@ -40,15 +39,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px; /* Imposta la larghezza desiderata del pulsante */
-    margin-left: auto; /* Centra il pulsante rispetto al bordo sinistro */
-    margin-right: auto; /* Centra il pulsante rispetto al bordo destro */
+    width: 200px; 
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
 
 .btn-back:hover{
     background-color: #f0a93e;
     color: #2b3a4d;
+}
+.btn-incr{
+  background-color: #2b3a4d;
+  font-weight: 500;
+  color: #f0a93e;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+
+}
+.btn-incr:hover{
+  background-color: #f0a93e;
+  color: #2b3a4d;
 }
   
   

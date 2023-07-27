@@ -17,4 +17,5 @@ export interface Info {
     category: string
     thumbnail: string
     images: string[]
+    quantity: number; 
 }
