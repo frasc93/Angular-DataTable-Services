@@ -1,23 +1,19 @@
 
 .card {
-    max-width: 700px;
+    max-width: 600px;
     margin: 20px auto;
     border: 3px solid #f0a93e;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    background-color: #d0f0f7;
+    background-color: #f2fbfd;
     
   }
   
   .card-img-top {
-    width: 400px;
+    width: 300px;
     height: 200px;
     object-fit: cover;
-  }
-  
-  .card-body {
-    padding: 20px;
   }
   
   .card-title {
@@ -39,9 +35,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px; /* Imposta la larghezza desiderata del pulsante */
-    margin-left: auto; /* Centra il pulsante rispetto al bordo sinistro */
-    margin-right: auto; /* Centra il pulsante rispetto al bordo destro */
+    width: 200px; 
+    margin-left: auto; 
+    margin-right: auto; 
     margin-bottom: 30px;
 }
 

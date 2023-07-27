@@ -11,12 +11,14 @@ import { CartService } from 'src/service/cart.service';
 export class CartComponent {
 
   cartItems: Info[] = [];
+  totalCost: number = 0;
 
   constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
     this.cartService.cart$.subscribe(cartItems => {
       this.cartItems = cartItems;
+      this.calculateTotalCost();
     });
 
 }
@@ -26,7 +28,7 @@ addToCart(product: Info) {
   this.cartService.addToCart(product);
 }
 
-//rimuove prodotto dal carrello
+//rimuove prodotto dal carrello 
 removeFromCart(product: Info) {
   this.cartService.removeFromCart(product);
   console.log('Product removed from cart', product);
@@ -37,6 +39,7 @@ decrementQuantity(product: Info) {
   if (product.quantity && product.quantity > 1) {
     product.quantity -= 1;
   }
+  this.calculateTotalCost();
 }
 
 //incremento quantità nel carrello
@@ -46,6 +49,12 @@ incrementQuantity(product: Info) {
   } else {
     product.quantity += 1;
   }
+  this.calculateTotalCost();
+}
+
+//get dal service costo totale del carrello
+calculateTotalCost() {
+  this.totalCost = this.cartService.getTotalCost();
 }
 
 }

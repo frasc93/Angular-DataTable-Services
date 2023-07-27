@@ -41,4 +41,11 @@ export class CartService {
   getCartItems(): Info[] {
     return this.cartSubject.getValue(); 
   }
+
+  //metodo per calcolare il costo totale nel carrello
+  getTotalCost(): number {
+    const cartItems = this.cartSubject.getValue();
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  }
+  
 }

@@ -54,17 +54,17 @@ export class DetailsComponent implements OnInit  {
   //incrementa quantità del prodotto
   incrementQuantity() {
     if (this.product) {
-      if (this.product.quantity === undefined) {
+      if (this.product.quantity === undefined) { //se il prodotto è undefined imposto la quantità a 1
         this.product.quantity = 1;
       } else {
-        this.product.quantity += 1;
+        this.product.quantity += 1; // se la quantità è a 1 incrementa di 1
       }
     }
   }
   //decremento quantità del prodotto
   decrementQuantity() {
     if (this.product) {
-      if (this.product.quantity === undefined){
+      if (this.product.quantity === undefined){ 
         this.product.quantity = 1;
       } else {
         this.product.quantity -= 1;
@@ -74,5 +74,6 @@ export class DetailsComponent implements OnInit  {
   navigateToHomePage() {
     this.router.navigate(['/']);
   }
+  
 
 }
