@@ -1,0 +1,34 @@
+<div class="container" style="text-align: center;">
+    <h1>Thank you for your order!</h1>
+    <h5>Your order has been completed successfully.</h5>
+    <h2>Storico Acquisti Precedenti</h2>
+    <div *ngIf="orders.length === 0">
+      <p>Nessun ordine precedente.</p>
+    </div>
+    <div style="text-align: center;" *ngFor="let order of orders">
+      <h3>Ordine ID: {{ order.id }}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Prodotto</th>
+            <th>Quantità</th>
+            <th>Prezzo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of order.items">
+            <td>{{ item.title }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>$ {{ item.price * item.quantity }}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">Totale</td>
+            <td>$ {{ order.totalCost }}</td>
+          </tr>
+        </tfoot>
+      </table>
+      <p>Data ordine: {{ order.date | date }}</p>
+    </div>
+</div>

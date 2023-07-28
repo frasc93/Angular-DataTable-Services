@@ -6,6 +6,7 @@ import { LoginComponent } from 'src/components/login/login.component';
 import { AuthGuard } from 'src/service/auth.guard';
 import { CartComponent } from 'src/components/cart/cart.component';
 import { CheckoutComponent } from 'src/components/checkout/checkout.component';
+import { ConfirmationComponent } from 'src/components/confirmation/confirmation.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent,  title: 'Login'},
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard], title: 'Cart'},
   { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard], title: 'Checkout'},
+  { path: 'confirmation', component: ConfirmationComponent, canActivate: [AuthGuard], title: 'Confirmation'},
 ];
 
 @NgModule({

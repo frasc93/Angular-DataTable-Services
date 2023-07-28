@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Info } from 'src/modules/DataProducts';
+import { Order } from 'src/modules/Order';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+
+
 
   // BehaviorSubject che conterrà l'array dei prodotti nel carrello
   private cartSubject: BehaviorSubject<Info[]> = new BehaviorSubject<Info[]>([]);
@@ -53,6 +56,34 @@ export class CartService {
     this.cartSubject.next([]); // reimposta il carrello con un array vuoto
     localStorage.removeItem('cart') // rimuove il carrello dal localStorage
 
+  }
+
+  private ordersKey = 'orders'; //chiave che recupera gli ordini memorizzati nel local storage
+
+  //metodo per aggiungere un nuovo ordine allo storico degli acquisti
+  addToPurchaseHistory() {
+    // recupera gli ordini precedenti dal Local Storage tramite la chiave
+    const previousOrders: Order[] = JSON.parse(localStorage.getItem(this.ordersKey) || '[]'); //array vuoto se non ci sono ordini precedenti
+
+    // crea un nuovo ordine
+    const newOrder: Order = {
+      id: previousOrders.length + 1, //incrementa l'id
+      items: this.cartSubject.getValue(),
+      totalCost: this.getTotalCost(),
+      date: new Date()
+    };
+
+    // aggiungo il nuovo ordine alla lista degli ordini precedenti
+    previousOrders.push(newOrder);
+
+    // salvo la lista aggiornata nel Local Storage
+    localStorage.setItem(this.ordersKey, JSON.stringify(previousOrders));
+  }
+
+  //metodo per ottenere gli ordini presenti nello storico
+  getOrders(): Order[] {
+    // recupera gli ordini precedenti dal Local Storage, se non ci sono array vuoto
+    return JSON.parse(localStorage.getItem(this.ordersKey) || '[]');
   }
   
 }

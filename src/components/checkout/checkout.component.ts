@@ -20,13 +20,20 @@ export class CheckoutComponent {
     this.totalCost = this.cartService.getTotalCost();
   }
 
+  //metodo per gestire l'acquisto
   purchase() {
+    // aggiungo l'acquisto corrente allo storico degli acquisti
+    this.cartService.addToPurchaseHistory();
     // dopo l'acquisto svuota il carrello
     this.cartService.clearCart();
   }
 
   navigateToCart() {
     this.router.navigate(['/cart']);
+  }
+
+  navigateToConfirmation() {
+    this.router.navigate(['/confirmation']);
   }
 
 }

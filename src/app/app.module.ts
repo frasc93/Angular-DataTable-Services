@@ -15,6 +15,7 @@ import { AuthInterceptor } from 'src/service/auth.interceptor';
 import { CartComponent } from 'src/components/cart/cart.component';
 import { NavbarComponent } from 'src/components/navbar/navbar.component';
 import { CheckoutComponent } from 'src/components/checkout/checkout.component';
+import { ConfirmationComponent } from 'src/components/confirmation/confirmation.component';
 
 
 
@@ -26,7 +27,8 @@ import { CheckoutComponent } from 'src/components/checkout/checkout.component';
     LoginComponent,
     CartComponent,
     NavbarComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
