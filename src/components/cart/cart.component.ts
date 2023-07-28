@@ -57,4 +57,9 @@ calculateTotalCost() {
   this.totalCost = this.cartService.getTotalCost();
 }
 
+
+goToCheckout() {
+  this.router.navigate(['/checkout']);
+}
+
 }

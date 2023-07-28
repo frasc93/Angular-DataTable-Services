@@ -1,10 +1,12 @@
 <h1 style="align-items: center; justify-content: center; text-align: center;">Carrello</h1>
 
 <div class="container d-flex flex-wrap">
-  <h2 style="align-items: center; justify-content: center; text-align: right;">TOTAL: ${{ totalCost }}</h2>
+  <button class="btn check ms-auto" (click)="goToCheckout()">Checkout</button>
+
 
 <table class="table">
   <thead>
+      <h2 >TOTAL: ${{ totalCost }}</h2>
     <tr>
       <th scope="col">Image</th>
       <th scope="col">Title</th>

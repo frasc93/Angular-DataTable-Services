@@ -14,6 +14,7 @@ import { DetailsComponent } from 'src/components/details/details.component';
 import { AuthInterceptor } from 'src/service/auth.interceptor';
 import { CartComponent } from 'src/components/cart/cart.component';
 import { NavbarComponent } from 'src/components/navbar/navbar.component';
+import { CheckoutComponent } from 'src/components/checkout/checkout.component';
 
 
 
@@ -24,7 +25,8 @@ import { NavbarComponent } from 'src/components/navbar/navbar.component';
     DetailsComponent,
     LoginComponent,
     CartComponent,
-    NavbarComponent
+    NavbarComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

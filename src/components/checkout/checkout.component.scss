@@ -1,0 +1,71 @@
+
+.card {
+    max-width: 600px;
+    margin: 20px auto;
+    border: 3px solid #f0a93e;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    background-color: #f2fbfd;
+    
+    
+  }
+  .table{
+    background-color: #f2fbfd;
+
+  }
+  tbody td{
+    background-color: #f2fbfd;
+    color: #2b3a4d;
+  }
+  thead th{
+    background-color: #f2fbfd;
+    color: #2b3a4d
+  }
+  tfoot td{
+    background-color: #f2fbfd;
+    color: #2b3a4d;
+    font-size: 18px;
+  }
+  .card-img-top {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 35px;
+    font-weight: bold;
+    color: #2b3a4d;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    color: #2b3a4d;
+  }
+
+  .btn-buy{
+    background-color: #f0a93e;
+    font-weight: 500;
+    color: #2b3a4d;
+    
+  
+  }
+  .btn-buy:hover{
+    background-color: #2b3a4d;
+    color: #f0a93e;
+  }
+
+  .btn-back{
+    background-color: #2b3a4d;
+    font-weight: 500;
+    color: #f0a93e;
+    
+  
+  }
+  .btn-back:hover{
+    background-color: #f0a93e;
+    color: #2b3a4d;
+  }

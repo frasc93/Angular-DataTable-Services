@@ -47,5 +47,12 @@ export class CartService {
     const cartItems = this.cartSubject.getValue();
     return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   }
+
+  //metodo per svuotare il carrello una volta fatto l'acquisto
+  clearCart(){
+    this.cartSubject.next([]); // reimposta il carrello con un array vuoto
+    localStorage.removeItem('cart') // rimuove il carrello dal localStorage
+
+  }
   
 }

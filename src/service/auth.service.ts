@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private loginUrl = 'https://dummyjson.com/auth/login';
-  private loggedIn: boolean = false; // controllo se sono loggato
+  loggedIn: boolean = false; // controllo se sono loggato
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -33,6 +33,13 @@ export class AuthService {
   isLoggedIn(): boolean {
     const authToken = localStorage.getItem('token');
     return Boolean(authToken);
+
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.loggedIn = false;
+    this.router.navigate(['/login']);
 
   }
 
