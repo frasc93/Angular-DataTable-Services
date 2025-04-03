@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+  // username: emilys - password: emilyspass 
   private loginUrl = 'https://dummyjson.com/auth/login';
   loggedIn: boolean = false; // controllo se sono loggato
 
@@ -16,11 +17,12 @@ export class AuthService {
 
   //service per user authentication
   login(login: User): Observable<User> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     if(this.loggedIn) {
       this.router.navigate(['/']);
     }
     
-    return this.http.post<User>(this.loginUrl, login);
+    return this.http.post<User>(this.loginUrl, login, {headers});
  
   }
 

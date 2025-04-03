@@ -1,34 +1,44 @@
-<div class="container" style="text-align: center;">
-    <h1>Thank you for your order!</h1>
-    <h5>Your order has been completed successfully.</h5>
-    <h2>Storico Acquisti Precedenti</h2>
-    <div *ngIf="orders.length === 0">
-      <p>Nessun ordine precedente.</p>
+<div class="container">
+    <div class="header">
+      <h1 style="text-align: center;">Thank you for your order!</h1>
+      <h3 style="text-align: center;">Your order has been completed successfully.</h3>
     </div>
-    <div style="text-align: center;" *ngFor="let order of orders">
-      <h3>Ordine ID: {{ order.id }}</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Prodotto</th>
-            <th>Quantità</th>
-            <th>Prezzo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of order.items">
-            <td>{{ item.title }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>$ {{ item.price * item.quantity }}</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="2">Totale</td>
-            <td>$ {{ order.totalCost }}</td>
-          </tr>
-        </tfoot>
-      </table>
-      <p>Data ordine: {{ order.date | date }}</p>
+
+    <div class="card">
+      <div class="order-history" style="text-align: center;">
+        <h2>Order History</h2>
+        <div *ngIf="orders.length === 0" class="no-orders">
+          <p>Nessun ordine precedente.</p>
+        </div>
+
+        <div class="container-history">
+          <div *ngFor="let order of orders">
+            <h4>Order ID: {{ order.id }}</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of order.items">
+                  <td>{{ item.title }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>$ {{ item.price * item.quantity }}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="1">Total</td>
+                  <td>$ {{ order.totalCost }}</td>
+                </tr>
+              </tfoot>
+            </table>
+            <p class="order-date">Order Date: {{ order.date | date }}</p>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
